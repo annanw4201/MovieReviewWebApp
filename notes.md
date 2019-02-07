@@ -20,3 +20,9 @@
   When there is a GET request, and matching with URL "/", the function in second argument will be executed, and the response (res in short) will be "index" Handlebars in views' folder with the data as "{title: 'Express'}", i.e. the data for the title is 'Express'.
 
 - Use NPM (Node Package Manager), find, and manage the libraries. 
+
+- Use REST and perform CRUD operations:
+  - Create: Creating new users
+  - Read: Retrieving and displaying data of existing users
+  - Update: Editing existing user information
+  - Delete: Deleting users
