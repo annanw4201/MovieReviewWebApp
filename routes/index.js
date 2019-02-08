@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var Review = require('../models/review');
 
 var reviews = [
 {
@@ -34,8 +35,17 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/reviews/newReview', function (req, res, next) {
-	// body...
 	res.render('reviews/newReview');
+});
+
+router.post('/reviews/newReview', function(req, res, next) {
+	var review = new Review(req.body);
+	review.save(function(err, review) {
+		if (err) {
+			console.log(err);
+		}
+		return res.redirect('/');
+	});
 });
 
 module.exports = router;

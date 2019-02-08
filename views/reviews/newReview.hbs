@@ -6,7 +6,7 @@
 
 <div class="row">
 	<div class="col">
-		<form method="POST" action="/reviews"> 
+		<form method="POST" action="/reviews/newReview"> 
 
 			<div class="form-row">
 				<div class="form-group col-8 col-lg-6">
@@ -28,12 +28,12 @@
 
 			<div class="form-group">
 				<label for="reviewTitle">Title</label>
-				<input type="text" name="reviewTitle" class="form-control" id="reviewTitle" placeholder="Write a headline here">
+				<input type="text" name="title" class="form-control" id="reviewTitle" placeholder="Write a headline here...">
 			</div>
 
 			<div class="form-group">
 				<label for="reviewBody">Review</label>
-				<textarea name="reviewBody" class="form-control" id="reviewBody" placeholder="Write your review here"></textarea>
+				<textarea name="body" class="form-control" id="reviewBody" placeholder="Write your review here..."></textarea>
 			</div>
 
 			<button type="submit" class="btn btn-primary">Submit</button>
