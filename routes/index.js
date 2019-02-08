@@ -33,4 +33,9 @@ router.get('/', function(req, res, next) {
 	res.render('reviews/index', {reviews: reviews});
 });
 
+router.get('/reviews/newReview', function (req, res, next) {
+	// body...
+	res.render('reviews/newReview');
+});
+
 module.exports = router;
