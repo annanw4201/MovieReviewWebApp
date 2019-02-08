@@ -8,8 +8,8 @@ var indexRouter = require('./routes/index');
 
 // configure mongoDB
 var mongoose = require('mongoose');
-var mongoURL = 'mongodb://annanwang:Developer2019@ds227255.mlab.com:27255/movie-review-webapp';
-mongoose.connect(mongoURL);
+var mongoURL = 'mongodb://admin:admin123@ds227255.mlab.com:27255/movie-review-webapp';
+mongoose.connect(mongoURL, {useNewUrlParser: true});
 mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
