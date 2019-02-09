@@ -14,10 +14,10 @@ mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-
+// set up express
 var app = express();
 
-// view engine setup
+// set up view engine for express
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -27,6 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// requests to index page will be using the index router
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
