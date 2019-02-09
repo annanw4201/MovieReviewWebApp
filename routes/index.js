@@ -2,49 +2,40 @@ var express = require('express');
 var router = express.Router();
 var Review = require('../models/review');
 
-var reviews = [
-{
-	title: 'Wakanda forever',
-	movieName: 'Black Panther',
-	rating: 4,
-	body: 'Even soulless, Easter-egg hating film snobs like me can find a lot to admire in Black Panther.'
-},
-{
-	title: 'Welcome back Spielberg',
-	movieName: 'Ready Player One',
-	rating: 3,
-	body: "Spielberg wants us to drop the techno-gadgets and join hands, but it's the VR world that really juices him. He's the ultimate fanboy making a movie about the need to move beyond being a fan."
-},
-{
-	title: 'Fast, funny, and fantastic',
-	movieName: 'Rush Hour',
-	rating: 4,
-	body: "Rush Hour is a righteous title for an action comedy, and that's only the beginning."
-},
-{
-	title: 'DiCaprio gives the best performance of his career.',
-	movieName: 'The Wolf of Wall Street',
-	rating: 5,
-	body: "The result is a superb performance from DiCaprio as the swaggering, shouting bastard, and probably Scorsese's best film in 15 years."
-}
-];
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.render('reviews/index', {reviews: reviews});
+	
+	Review.find({}, (err, reviews) => {
+		if (err) {
+			console.log(err);
+		}
+		res.render('reviews/index', {reviews: reviews});
+	});
 });
 
+// get post new review page
 router.get('/reviews/newReview', function (req, res, next) {
 	res.render('reviews/newReview');
 });
 
+// post a new review
 router.post('/reviews/newReview', function(req, res, next) {
-	var review = new Review(req.body);
-	review.save(function(err, review) {
+	var newReview = new Review(req.body);
+	newReview.save(function(err, review) {
 		if (err) {
 			console.log(err);
 		}
+		// after successfully save the data, return to main page
 		return res.redirect('/');
+	});
+});
+
+router.get('/reviews/:id', (req, res, next) => {
+	Review.findById(req.params.id, (err, review) => {
+		if (err) {
+			console.log(err);
+		}
+		res.render('reviews/showReview', {review: review});
 	});
 });
 
