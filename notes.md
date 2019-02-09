@@ -32,3 +32,5 @@
   - Delete: Deleting users
 
 - Implement CRUD operations using mongoDB by describing Schema for a model object.
+
+- Web app is made of many web pages, but it's backed by a server that can perfrom complex tasks, and it's web pages are mostly dynamically generated instead of static web pages in a web site.
