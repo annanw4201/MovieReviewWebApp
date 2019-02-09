@@ -1,4 +1,6 @@
 # Notes during the Development
+- Integrated Bootstrap features.
+
 - Use HTTP request/response cycle in the Express context.
 
 - Four main HTTP actions will be used:
@@ -21,8 +23,12 @@
 
 - Use NPM (Node Package Manager), find, and manage the libraries. 
 
+- Install nodemon for automatically restart server whenever there is a change to javascript file.
+
 - Use REST and perform CRUD operations:
   - Create: Creating new users
   - Read: Retrieving and displaying data of existing users
   - Update: Editing existing user information
   - Delete: Deleting users
+
+- Implement CRUD operations using mongoDB by describing Schema for a model object.
